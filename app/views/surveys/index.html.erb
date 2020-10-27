@@ -1,0 +1,22 @@
+<h1>View <%= pluralize(@surveys.count, "Survey") %></h1>
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th scope="=col">Name</th>
+			<th scope="=col">Actions</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @surveys.each do |survey| %>
+		<tr>
+			<td><%= survey.survey_name %></td>
+			<td>
+				<a href="/surveys/<%= survey.id %>">View</a> |
+				<a href="/surveys/<%= survey.id %>">Create Questions</a> |
+				<a href="/surveys/<%= survey.id %>">Respond to Survey</a>
+			</td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
+<a class="btn btn-primary" href="/surveys/new" role="button">Create Survey</a>

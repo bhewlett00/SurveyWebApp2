@@ -1,0 +1,17 @@
+<h1>Create Survey</h1>
+<form action="/surveys" method="post">
+	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+	<p>
+		<div class="form-group col-md-4">
+		<label for="survey_name">Survey Name</label>
+    	<input type="text" class="form-control" name="survey[survey_name]">
+		</div>
+	</p>
+	<a class="btn btn-primary" href="/surveys" role="button">Create</a>
+</form>
+
+<% if flash[:errors] %>
+	<% flash[:errors].each do |e| %>
+	<p><%= e %></p>
+	<% end %>
+<% end %> 
