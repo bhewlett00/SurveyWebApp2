@@ -17,6 +17,9 @@ class SurveysController < ApplicationController
 		end
 	end
 
+	def show
+	end
+
 	private
 	def survey_params
 		params.require(:survey).permit(:survey_name)
