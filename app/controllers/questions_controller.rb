@@ -1,15 +1,15 @@
 class QuestionsController < ApplicationController
 	def new
+		@survey = Survey.find(params[:id])
 	end
 
 	def create
 		question = Question.new(question_params)
-		@survey = Question.find(params[:id])
 		if question.save
-			redirect_to "/surveys"
+			redirect_to "/questions/#{question.survey_id}"
 		else
 			flash[:errors] = question.errors.full_messages
-			redirect_to "/surveys/new"
+			redirect_to "/questions/#{question.survey_id}"
 		end
 	end
 
