@@ -4,4 +4,7 @@ Rails.application.routes.draw do
   post "surveys" => "surveys#create"
   get "questions/:id" => "questions#new"
   post "questions/:id" => "questions#create"
+  get "respondents" => "respondents#index"
+  get "respondents/:id" => "respondents#new"
+  post "respondents/:id" => "respondents#create"
 end

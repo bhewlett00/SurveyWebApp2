@@ -1,0 +1,17 @@
+<h1>Enter Your Name</h1>
+<form action="/respondents/:id" method="post">
+	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+	<p>
+		<div class="form-group col-md-4">
+		<label for="respondent_name">Respondent Name:</label>
+    	<input type="text" class="form-control" name="respondent[respondent_name]">
+		</div>
+	</p>
+	<input type="submit" value="Create">
+</form>
+
+<% if flash[:errors] %>
+	<% flash[:errors].each do |e| %>
+	<p><%= e %></p>
+	<% end %>
+<% end %> 

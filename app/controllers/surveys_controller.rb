@@ -1,7 +1,6 @@
 class SurveysController < ApplicationController
 	def index
 		@surveys = Survey.all
-		@scale = [1, 2, 3, 4, 5]
 	end
 
 	def new
