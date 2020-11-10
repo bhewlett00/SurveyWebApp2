@@ -1,10 +1,10 @@
 class RespondentsController < ApplicationController
 	def index
 		@surveys = Survey.all
+		@respondents = Respondent.all
 	end
 
 	def new
-		@respondents = Respondent.all
 	end
 
 	def create
@@ -17,8 +17,18 @@ class RespondentsController < ApplicationController
 		end
 	end
 
+	def show
+		@surveys = Survey.all
+		@respondent = Respondent.find(params[:id])
+	end
+
 	private
 	def respondent_params
 		params.require(:respondent).permit(:respondent_name)
+	end
+
+	private
+	def response_params
+		params.require(:response).permit(:response_text)
 	end
 end

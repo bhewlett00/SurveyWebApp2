@@ -1,8 +1,8 @@
-<h1>
+<h2>
 	<large class="pl-3">
-	Respndents View <%= pluralize(@surveys.count, "Survey") %>
+	View <%= pluralize(@respondents.count, "Respondent") %>
 	</large>
-</h1>
+</h2>
 <table class="table table-striped">
 	<thead>
 		<tr>
@@ -11,13 +11,14 @@
 		</tr>
 	</thead>
 	<tbody>
-		<% @surveys.each do |survey| %>
+		<% @respondents.each do |respondent| %>
 		<tr>
-			<td><%= survey.survey_name %></td>
+			<td><%= respondent.respondent_name %></td>
 			<td>
-				<a href="/respondents/<%= survey.id %>">Respond</a>
+				<a href="/respondents/<%= respondent.id %>">View Surveys</a>
 			</td>
 		</tr>
 		<% end %>
 	</tbody>
 </table>
+<a class="btn btn-primary" href="/respondents/new" role="button">Create Respondent</a>

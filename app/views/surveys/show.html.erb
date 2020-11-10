@@ -1,0 +1,21 @@
+<h2>
+	<large class="pl-3">
+	View Survey
+	</large>
+</h2>
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th scope="=col"><%= @survey.survey_name %></th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @questions.each do |question| %>
+		<tr>
+			<td><%= question.question_text %></td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
+<a class="btn btn-primary" href="/surveys" role="button">Back</a>
+<a class="btn btn-primary" href="/questions/<%= @survey.id %>" role="button">Create Question</a>
