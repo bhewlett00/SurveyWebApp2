@@ -7,10 +7,9 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div class="mx-auto order-0">
       <ul class="navbar-nav mr-auto">
-      <div class="container-center">
-        <h1 style="color: black">Survey Web App</h1> 
-      </div> 
+      <h1 style="color: black">Survey Web App</h1> 
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">
           Surveyor
@@ -26,9 +25,12 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item" href="/respondents">View Respondents</a>
+          <a class="dropdown-item" href="/respondents/new">Create Respondent</a>
         </div>
       </li>
+    </div>
     </ul>
+
     </nav>
 
   </head>
