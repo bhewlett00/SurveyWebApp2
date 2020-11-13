@@ -10,5 +10,5 @@ Rails.application.routes.draw do
   post "respondents/:id" => "respondents#create"
   get "respondents/:id" => "respondents#show"
   get "responses/:respondent_id/:survey_id" => "responses#new"
-  post "responses/:respondent_id/:survey_id" => "responses#create"
+  post "respondents" => "responses#create"
 end

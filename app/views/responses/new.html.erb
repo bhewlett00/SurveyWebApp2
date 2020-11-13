@@ -1,15 +1,16 @@
 <h2>Respond to Survey </h2>
-<form action="responses/:survey_id/:respondent_id" method="post">
+<form action="/respondents" method="post">
 	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 	
 	<table class="table">
 	<tbody>
 		<% @questions.each do |question| %>
+		<% @i = @i.next %>
 		<tr>
 			<td>
 				<div class="form-group col-lg-5">
     			<label for="question"><%= question.question_text %></label>
-    			<select class="form-control-center" id="formControlSelect1" name="response[response_text]">
+    			<select class="form-control-center" id="formControlSelect1" name="response<%= @i %>[response_text]">
       				<option value="1">1</option>
       				<option value="2">2</option>
       				<option value="3">3</option>
@@ -19,13 +20,13 @@
     		</div>
     		</td>
 			<input type="hidden" name="question[survey_id]" value="<%= question.survey_id %>">
-			<input type="hidden" name="response[question_id]" value="<%= question.id %>">
+			<input type="hidden" name="response<%= @i %>[question_id]" value="<%= question.id %>">
 		</tr>
 		<% end %>
 	</tbody>
 	</table>
 	
-	<input type="hidden" class="form-control" name="response[respondent_id]" 
+	<input type="hidden" class="form-control" name="response<%= @i %>[respondent_id]" 
 	value="<%= @respondent.id %>">
 	<input type="submit" value="Create">
 </form>
