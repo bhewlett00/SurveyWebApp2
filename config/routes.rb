@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get "surveys/new" => "surveys#new"
   post "surveys" => "surveys#create"
   get "surveys/:id" => "surveys#show"
+  get "surveys/:survey_id/:question_id" => "surveys#show_responses"
   get "questions/:id" => "questions#new"
   post "questions/:id" => "questions#create"
   get "respondents" => "respondents#index"

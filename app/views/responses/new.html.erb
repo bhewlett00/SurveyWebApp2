@@ -21,13 +21,13 @@
     		</td>
 			<input type="hidden" name="question[survey_id]" value="<%= question.survey_id %>">
 			<input type="hidden" name="response<%= @i %>[question_id]" value="<%= question.id %>">
+			<input type="hidden" class="form-control" name="response<%= @i %>[respondent_id]" 
+				value="<%= @respondent.id %>">
 		</tr>
 		<% end %>
 	</tbody>
 	</table>
 	
-	<input type="hidden" class="form-control" name="response<%= @i %>[respondent_id]" 
-	value="<%= @respondent.id %>">
 	<input type="submit" value="Create">
 </form>
 

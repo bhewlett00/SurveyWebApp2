@@ -21,6 +21,12 @@ class SurveysController < ApplicationController
 		@questions = Survey.find(params[:id]).question
 	end
 
+	def show_responses
+		@survey = Survey.find(params[:survey_id])
+		@question = Question.find(params[:question_id])
+		@responses = Response.where(question_id: params[:question_id])
+	end
+
 	private
 	def survey_params
 		params.require(:survey).permit(:survey_name)

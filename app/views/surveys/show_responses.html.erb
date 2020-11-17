@@ -1,0 +1,20 @@
+<h2>
+	<large class="pl-3">
+	<%= @survey.survey_name %>
+	</large>
+</h2>
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th scope="=col"><%= @question.question_text %></th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @responses.each do |response| %>
+		<tr>
+			<td><%= response.response_text %></td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
+<a class="btn btn-primary" href="/surveys/<%= @survey.id %>" role="button">Back</a>
