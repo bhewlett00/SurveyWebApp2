@@ -12,4 +12,6 @@ Rails.application.routes.draw do
   get "respondents/:id" => "respondents#show"
   get "responses/:respondent_id/:survey_id" => "responses#new"
   post "respondents" => "responses#create"
+  post "surveys/:id/top_rated" => "surveys#top_rated"
+  post "surveys/:id/low_rated" => "surveys#low_rated"
 end
