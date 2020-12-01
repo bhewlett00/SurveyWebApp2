@@ -30,16 +30,16 @@ class SurveysController < ApplicationController
 	def top_rated
 		@survey = Survey.find(params[:id])
 		@questions =  Survey.find(params[:id]).question
-		top_rated_question_id = 0
-		for i in 0..questions.length do
-			greatest_response_sum = Response.where(question_id: questions[0]).sum(:response_text)
-			response_sum = Response.where(question_id: questions[i]).sum(:response_text)
-			if response_sum > greatest_response_sum
-				greatest_response_sum = response_sum
-				top_rated_question_id = i
+		@top_rated_question_id = 0
+		@greatest_response_sum = Response.where(question_id: @questions[0]).sum(:response_text)
+		for i in 0..@questions.length do
+			@response_sum = Response.where(question_id: @questions[i]).sum(:response_text)
+			if @response_sum > @greatest_response_sum
+				@greatest_response_sum = @response_sum
+				@top_rated_question_id = i
 			end
 		end
-		@top_rated_question = questions[top_rated_question_id]
+		@top_rated_question = @questions[@top_rated_question_id]
 	end
 
 	def low_rated

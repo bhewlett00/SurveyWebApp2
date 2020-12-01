@@ -4,7 +4,15 @@
 	</large>
 </h2>
 <table class="table table-striped">
-	<thead> Top Rated Question</thead>
-	<tr><%= @top_rated_question %></tr>
+	<thead> 
+		<tr>
+		<th> Top Rated Question: </th>
+		</tr>
+	</thead>
+	<tbody>
+	<tr>
+		<td><%= @top_rated_question.question_text %> </td>
+	</tr>
+	</tbody>
 </table> 
 <a class="btn btn-primary" href="/surveys" role="button">Back</a>
