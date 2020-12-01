@@ -32,7 +32,7 @@ class SurveysController < ApplicationController
 		@questions =  Survey.find(params[:id]).question
 		@top_rated_question_id = 0
 		@greatest_response_sum = Response.where(question_id: @questions[0]).sum(:response_text)
-		for i in 0..@questions.length do
+		for i in 0..(@questions.length - 1) do
 			@response_sum = Response.where(question_id: @questions[i]).sum(:response_text)
 			if @response_sum > @greatest_response_sum
 				@greatest_response_sum = @response_sum
@@ -43,6 +43,18 @@ class SurveysController < ApplicationController
 	end
 
 	def low_rated
+		@survey = Survey.find(params[:id])
+		@questions =  Survey.find(params[:id]).question
+		@low_rated_question_id = 0
+		@smallest_response_sum = Response.where(question_id: @questions[0]).sum(:response_text)
+		for i in 0..(@questions.length - 1) do
+			@response_sum = Response.where(question_id: @questions[i]).sum(:response_text)
+			if @response_sum < @smallest_response_sum
+				@smallest_response_sum = @response_sum
+				@low_rated_question_id = i
+			end
+		end
+		@low_rated_question = @questions[@low_rated_question_id]
 	end
 
 	private

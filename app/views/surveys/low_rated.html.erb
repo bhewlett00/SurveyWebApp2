@@ -1,0 +1,18 @@
+<h2>
+	<large class="pl-3">
+	<%= @survey.survey_name %>
+	</large>
+</h2>
+<table class="table table-striped">
+	<thead> 
+		<tr>
+		<th> Low Rated Question: </th>
+		</tr>
+	</thead>
+	<tbody>
+	<tr>
+		<td><%= @low_rated_question.question_text %> </td>
+	</tr>
+	</tbody>
+</table> 
+<a class="btn btn-primary" href="/surveys" role="button">Back</a>
